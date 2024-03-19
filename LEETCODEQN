@@ -1,0 +1,104 @@
+
+
+1)Remove nth node from end of ll
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+//  Built in
+//  class ListNode{
+// 	public:
+// 		int val;
+// 		ListNode* next;
+// 		ListNode(int val){
+			
+//           this->val=val;
+//           this->next=NULL;
+// 		}
+// };
+class Solution {
+public:
+    void deleteNode(ListNode* target) {
+        target->val=target->next->val;
+        target->next=target->next->next;
+        
+    }
+};
+
+
+
+
+
+
+
+2)Middle of ll
+
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while(fast!=nullptr&&fast->next!=nullptr){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+        // int len=0;
+        // ListNode* temp=head;
+        // //  o(n)
+        // while(temp!=NULL){   
+        //     len++;
+        //     temp=temp->next;
+
+        // }
+        // int mididx=len/2;
+        // ListNode* mid=head;
+        // for(int i=1;i<=mididx;i++){
+        //     mid=mid->next;
+        // }
+        // return mid;
+
+
+        
+    }
+};
+
+
+
+
+
+
+3)Delete node in a ll
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+//  Built in
+//  class ListNode{
+// 	public:
+// 		int val;
+// 		ListNode* next;
+// 		ListNode(int val){
+			
+//           this->val=val;
+//           this->next=NULL;
+// 		}
+// };
+class Solution {
+public:
+    void deleteNode(ListNode* target) {
+        target->val=target->next->val;
+        target->next=target->next->next;
+        
+    }
+};
