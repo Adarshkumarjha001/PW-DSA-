@@ -1,0 +1,399 @@
+//Reverse stack: using two extra stack stack is passed in fn as 
+//pass by value
+
+//Basic:
+
+//#include<iostream>
+//#include<bits/stdc++.h>
+//using namespace std;
+//void print(stack<int> ans){
+//	stack<int> temp;
+//	while(!ans.empty()){
+//    temp.push(ans.top());
+//	ans.pop();
+//}
+//     while(!temp.empty()){
+//     	cout<<temp.top()<<" ";
+//     	temp.pop();
+//	 }   
+//}
+//int main(){
+//	stack<int> ans;
+//	ans.push(10);
+//	ans.push(20);
+//	ans.push(30);
+//	ans.push(40);
+//	ans.push(50);
+//	print(ans);                                      
+//	stack<int> gt;                      
+//	stack<int> rt;
+//	
+//	while(ans.size()>0){
+//		gt.push(ans.top());
+//		ans.pop();
+//	}
+//		while(gt.size()>0){
+//		rt.push(gt.top());
+//		gt.pop(); 
+//	}
+//		while(rt.size()>0){
+//		ans.push(rt.top());
+//		rt.pop(); 
+//	}
+//	cout<<endl;
+//	print(ans);
+//	
+//}
+
+//HW
+//REVERSE STACK USING LINKEDLIST:
+//copy stack into another stack in the same order:
+
+//push element at bottom/ any index;
+
+//use another stack:  
+
+
+//#include<iostream>
+//#include<bits/stdc++.h>
+//using namespace std;
+//void print(stack<int> ans){ 
+//	stack<int> temp;
+//	while(!ans.empty()){
+//	
+//	temp.push(ans.top());
+//	ans.pop();
+//}
+//     while(!temp.empty()){
+//     	cout<<temp.top()<<" ";
+//     	temp.pop();
+//	 }
+//}
+//void pushAtbottom(stack<int> &ans,int val){
+//	
+//       stack<int> temp;
+//       while(!ans.empty()){
+//       	temp.push(ans.top());
+//       	ans.pop();
+//	   }
+//	   ans.push(val);
+//	   while(!temp.empty()){
+//       	ans.push(temp.top());
+//       	temp.pop();
+//	   }
+//	   
+//}
+//void pushAtIdx(stack<int> &ans,int idx,int val){
+//	stack<int> temp;
+// while(ans.size()>idx){
+// 	temp.push(ans.top());
+// 	ans.pop();
+// 	
+// }
+//   ans.push(val);
+//   while(temp.size()>0){
+// 	ans.push(temp.top());
+// 	temp.pop();
+// 	
+// }
+//   
+//}
+//int main(){
+//	stack<int> ans;
+//	ans.push(10);
+//	ans.push(20);
+//	ans.push(30);
+//	ans.push(40);
+//	ans.push(50);
+//	print(ans);
+//	cout<<endl;
+//	
+//	pushAtbottom(ans,70);
+//	print(ans);
+//	pushAtIdx(ans,2,110);
+//	cout<<endl;
+//	print(ans);
+//	  
+//}
+
+
+
+//REVERSE STACK RECURSIVELY
+
+
+//#include<iostream>
+//#include<bits/stdc++.h>
+//using namespace std;
+//void reverse(stack<int> &ans){
+//	if(ans.size()==0) return ;
+//	int x=ans.top();
+//	cout<<x<<" ";
+//	ans.pop();
+//	reverse(ans);
+//    ans.push(x);
+//	
+//}
+//void reversesameorder(stack<int> &ans){
+//	if(ans.size()==0) return ;
+//	int x=ans.top();
+//	ans.pop();            
+//    reversesameorder(ans);
+//	cout<<x<<" ";
+//	ans.push(x);
+//	
+//}
+//void pushatbottom(stack<int> &ans,int val){
+//	if(ans.size()==0) {
+//		ans.push(val); 
+//		cout<<val<<" ";
+//		return;
+//	}
+//	int x=ans.top();
+//	ans.pop();
+//	pushatbottom(ans,val);
+//	cout<<x<<" ";
+//	ans.push(x);
+//	
+//}
+//int main(){
+//	stack<int> ans;
+//	ans.push(10);
+//	ans.push(20);
+//	ans.push(30);
+//	ans.push(40);
+//	ans.push(50);     
+//	reverse(ans);
+//	cout<<endl;
+//	reversesameorder(ans);
+//	cout<<endl;
+//	pushatbottom(ans,70);
+//}
+
+
+//#include<iostream>
+//#include<bits/stdc++.h>
+//using namespace std;
+//void pushatbottom(stack<int> &ans,int val){
+//	if(ans.size()==0) {
+//		ans.push(val);
+//
+//		return;
+//	}
+//	int x=ans.top();
+//	ans.pop();
+//	pushatbottom(ans,val);
+//    ans.push(x);
+//	
+//}
+//void display(stack<int> ans){
+//	stack<int> temp;
+//	while(ans.size()>0){
+//		temp.push(ans.top());
+//		ans.pop();
+//	}
+//	while(temp.size()>0){
+//		cout<<temp.top()<<" ";
+//		temp.pop();
+//	}
+//}
+//void reverse(stack<int> &ans){
+//	if(ans.size()==1) return;
+//	int x=ans.top();
+//	ans.pop();
+//	reverse(ans);
+//	pushatbottom(ans,x);
+//}
+//
+//int main(){
+//	stack<int> ans;
+//	ans.push(10);
+//	ans.push(20);
+//	ans.push(30);
+//	ans.push(40);
+//	ans.push(50);  
+//	display(ans); 
+//	cout<<endl;
+//	reverse(ans);
+//	display(ans);  
+//}
+
+
+//CREATING STACKS USING ARRAY/VECTOR IMPLEMENTATION
+
+//#include<bits/stdc++.h>
+//using namespace std;
+//class Stack{
+//	public:
+//		int arr[5];
+//		int idx;
+//		Stack(){
+//			idx=-1;
+//		}
+//		void push(int val){
+//			if(idx==4){
+//				cout<<"stack is full"<<endl;
+//				return;
+//			}
+//			idx++;
+//			arr[idx]=val;
+//			
+//		}
+//		void display(){
+//			for(int i=0;i<idx;i++){
+//				cout<<arr[i]<<" ";
+//			}
+//		}
+//		void pop(){
+//			if(idx==-1){
+//				cout<<"Stack is empty"<<endl;
+//				return;
+//			}
+//			idx--;
+//		}
+//		int top(){
+//			return arr[idx];
+//		}
+//		int size(){
+//				if(idx==-1){
+//				cout<<"Stack is empty"<<endl;
+//				return -1;
+//			}
+//			return idx+1;
+//		}
+//};
+//int main(){
+//	Stack st;
+//	st.push(10);
+//	st.push(20);
+//	st.push(30);
+//	st.push(40);
+//	st.push(40);
+//	st.push(40);
+//	cout<<st.size()<<endl;
+//	st.pop();
+//	cout<<st.size()<<endl;
+//	cout<<st.top()<<endl;
+//	st.display();
+//}
+
+//VECTOR IMPLEMENTATION
+
+//#include<bits/stdc++.h>
+//using namespace std;
+//class Stack{
+//	public:
+//		vector<int> ans;
+//		
+//		void push(int val){
+//		    ans.push_back(val);
+//		
+//			
+//		}
+//		void pop(){
+//			if(ans.size()==0){
+//				cout<<"Stack is empty"<<endl;
+//				return;
+//			}
+//			ans.pop_back();
+//		}
+//		int top(){
+//			if(ans.size()==0){
+//				cout<<"Stack is empty"<<endl;
+//				return -1;
+//			}
+//			return ans[ans.size()-1];
+//		}
+//		int size(){
+//			return ans.size();
+//		}
+//};
+//int main(){
+//	Stack st;
+//	st.push(10);
+//	st.push(20);
+//	st.push(30);
+//	st.push(40);
+//	st.push(40);
+//	st.push(40);
+//	cout<<st.size()<<endl;
+//	st.pop();
+//	cout<<st.size()<<endl;
+//	cout<<st.top()<<endl;
+//}
+
+
+//both ll and vector do not have overflow prblm
+
+//Linkedlist implementation: Node implemenatin
+
+//#include<bits/stdc++.h>
+//using namespace std;
+//class Node{
+//	public:
+//		int val;
+//		Node* next;
+//		Node(int val){
+//			this->val=val;
+//			this->next=NULL;
+//		}
+//};
+//class Stack{
+//	public:
+//		Node* head;
+//		int size;
+//		Stack(){
+//			head=NULL;
+//			size=0;
+//		}
+//		void push(int val){
+//			Node* temp=new Node(val);
+//			temp->next=head;
+//			head=temp;
+//			size++;
+//		}
+//		void pop(){
+//			if(head==NULL){
+//				cout<<"Stack is empty"<<endl;
+//				return;
+//			}
+//			head=head->next;
+//			size--;
+//		}
+//		int top(){
+//			if(head==NULL){
+//				cout<<"Stack is empty"<<endl;
+//				return -1;
+//			}
+//			return head->val;
+//			
+//		}
+//		void display(){
+//			Node* temp=head;
+//			while(temp!=NULL){
+//				cout<<temp->val<<" ";
+//				temp=temp->next;
+//				
+//			}
+//			cout<<endl;
+//		}
+//}
+//int main(){
+//		Stack st;
+//	st.push(10);
+//	st.push(20);
+//	st.push(30);
+//	st.push(40);
+//	st.push(40);
+//	st.push(40);
+//	cout<<st.size<<endl;
+//	st.pop();
+//	cout<<st.size<<endl;
+//	cout<<st.top()<<endl;
+//	st.display();
+//	
+//}
+
+
+//---------------------------------------------------------------
+//-------------------------------------------------------------
+//--------------------------------------------------------------
